@@ -32,5 +32,9 @@ music_links.uniq!
 # end
 
 music_links.each do |link|
-  exec "youtube-dl --audio-format mp3 #{link}"
+  p "Starting process: youtube-dl --audio-format mp3 #{link}..."
+  output = `youtube-dl --audio-format mp3 #{link}`
+  output.split(/\n|\r/).each do |line|
+    p line
+  end
 end
